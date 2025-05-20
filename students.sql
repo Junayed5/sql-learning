@@ -14,13 +14,7 @@ CREATE TABLE students (
 
 INSERT INTO students (first_name, last_name, age, grade, course, email, dob, blood_group, country)
 VALUES
-    ('John', 'Doe', 20, 'A', 'Computer Science', 'john.doe@example.com', '2003-01-15', 'O+', 'USA'),
-    ('Jane', 'Smith', 22, 'B', 'Mathematics', 'jane.smith@example.com', '2001-05-20', 'A-', 'Canada'),
-    ('Alice', 'Johnson', 19, 'A', 'Physics', 'alice.johnson@example.com', '2004-03-10', 'B+', 'UK'),
-    ('Bob', 'Brown', 21, 'C', 'Chemistry', 'bob.brown@example.com', '2002-11-05', 'AB+', 'Australia'),
-    ('Charlie', 'Davis', 23, 'B', 'Biology', 'charlie.davis@example.com', '2000-07-30', 'O-', 'USA'),
-    ('Diana', 'Garcia', 20, 'A', 'History', 'diana.garcia@example.com', '2003-02-25', 'A+', 'Mexico'),
-    ('Ethan', 'Martinez', 22, 'B', 'Geography', 'ethan.martinez@example.com', '2001-09-12', 'B-', 'USA')
+    ('Elon', 'Mask', 22, 'B', 'Geography', NULL, '2001-09-12', 'B-', 'USA')
 
 
 
@@ -84,3 +78,54 @@ SELECT concat(first_name, ' ', last_name) as full_name FROM students;
     SUM()
     COUNT()
 */
+
+--not operator
+
+SELECT * FROM students
+    WHERE NOT country = 'USA'
+
+-- To check is null operator
+
+SELECT * FROM students
+    WHERE email IS NULL;
+
+SELECT COALESCE(email, 'Email not provided') FROM students;
+
+-- filter usa uk canada data
+SELECT * FROM students
+    WHERE country = 'USA' OR country = 'Canada' OR country = 'UK';
+
+-- using in 
+
+SELECT * FROM students 
+    WHERE country IN('USA', 'UK' , 'Canada');
+SELECT * FROM students 
+    WHERE country NOT IN('USA', 'UK' , 'Canada');
+
+
+-- Between
+SELECT * FROM students
+    WHERE age BETWEEN 19 and 23;
+SELECT * FROM students
+    WHERE dob BETWEEN '2000-01-01' and '2003-01-02' ORDER BY dob;
+
+-- LiKE
+
+SELECT * FROM students
+    WHERE first_name LIKE '%n';
+SELECT * FROM students
+    WHERE first_name LIKE '___n';
+SELECT * FROM students
+    WHERE first_name ILIKE 'a%';
+
+-- For Pagination (LIMIT, OFFSET)
+
+SELECT * FROM students LIMIT 5 OFFSET 2;
+
+SELECT * FROM students 
+    WHERE country IN('USA', 'UK' , 'Canada') LIMIT 4;
+
+-- to pagination
+
+SELECT * FROM students LIMIT 5 OFFSET 5 *0; 
+SELECT * FROM students LIMIT 5 OFFSET 5 *1; 
