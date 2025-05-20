@@ -2,10 +2,13 @@
 SELECT * FROM person2;
 
 -- single row delete
-DELETE FROM person2 WHERE user_name = 'Mobin';
+DELETE FROM person2 WHERE user_name = 'Hossain';
+
+-- all row delete
+TRUNCATE TABLE person2;
 
 -- add data
-INSERT INTO person2 VALUES (8, 'Mobin', 23);
+INSERT INTO person2 VALUES (4, 'Shariatullah', 23), (5, 'Nesar', 24);
 
 -- update column
 
@@ -22,9 +25,16 @@ ALTER TABLE person2
 ALTER Table person2
     ALTER COLUMN user_name TYPE VARCHAR(50);
 
--- add constrait
+-- update constrait
 ALTER Table person2
     alter COLUMN user_age set NOT NULL;
 
 ALTER Table person2
-    ALTER COLUMN user_age DROP NOT NULL
+    ALTER COLUMN user_age DROP NOT NULL;
+
+-- update constraint
+ALTER TABLE person2
+    ADD constraint unique_person2_user_age UNIQUE(user_age);
+ALTER TABLE person2
+    DROP constraint unique_person2_user_age UNIQUE(user_age);
+
