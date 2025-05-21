@@ -1,0 +1,28 @@
+SHOW TIMEZONE
+
+SELECT now()
+
+CREATE TABLE timeZ (ts TIMESTAMP WITHOUT TIME ZONE, tsz TIMESTAMP WITH TIME ZONE);
+
+INSERT INTO timeZ VALUES('2025-05-21','2025-05-21' );
+
+SELECT * FROM timeZ;
+
+
+SELECT now(); --2025-05-21 06:05:14.133917+06
+
+SELECT CURRENT_DATE; -- 2025-05-21
+
+SELECT now()::date; --2025-05-21
+SELECT now()::time; --06:06:52.874221
+
+SELECT to_char(now(), 'DDD');
+
+SELECT CURRENT_DATE - INTERVAL '1 year'; -- back to the year
+
+SELECT age(CURRENT_DATE , '2003-05-03'); -- finding current age
+SELECT age(CURRENT_DATE , '1995-06-12'); -- finding current age
+
+SELECT extract(MONTH FROM '2025-05-21'::date);
+
+SELECT 'n'::BOOLEAN

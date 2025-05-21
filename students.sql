@@ -129,3 +129,16 @@ SELECT * FROM students
 
 SELECT * FROM students LIMIT 5 OFFSET 5 *0; 
 SELECT * FROM students LIMIT 5 OFFSET 5 *1; 
+
+-- Delete row 
+
+DELETE FROM students
+    WHERE grade = 'C' AND country = 'USA';
+
+    
+-- Update row data
+SELECT * FROM students;
+
+UPDATE students 
+    set email = 'default@mail.com'
+    WHERE student_id = 8;
