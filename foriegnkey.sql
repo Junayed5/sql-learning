@@ -1,3 +1,4 @@
+
 CREATE TABLE "user" (
     id SERIAL PRIMARY KEY,
     username VARCHAR(25) NOT NULL
