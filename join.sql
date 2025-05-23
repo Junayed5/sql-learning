@@ -21,3 +21,6 @@ RIGHT JOIN "user" on post.user_id = "user".id;
 SELECT * FROM post
 FULL OUTER JOIN "user" on post.user_id = "user".id;
 
+SELECT * FROM post
+JOIN "user" USING(id);
+
